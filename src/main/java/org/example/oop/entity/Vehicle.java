@@ -15,4 +15,9 @@ public class Vehicle {
     public String information() {
         return name + " " + numberOfWheel + " " + publishingYear;
     }
+    
+    public String information(String name){
+        System.out.println(name);
+        return name + " " + numberOfWheel + " " + publishingYear;
+    }
 }

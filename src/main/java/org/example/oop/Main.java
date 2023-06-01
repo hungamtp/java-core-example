@@ -1,4 +1,4 @@
-package org.example;
+package org.example.oop;
 
 import org.example.oop.entity.Car;
 import org.example.oop.entity.Vehicle;
