@@ -1,8 +1,6 @@
-package org.example.threadsafety;
+package org.example.threadsafety.volatileThreadSafety;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
-public class ThreadSafety {
+public class ThreadSafetyVolatile {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -27,7 +25,9 @@ class ProcessingThread implements Runnable{
 
     @Override
     public void run() {
-        for(int i=1; i < 5; i++){
+        Thread t = Thread.currentThread();
+        for(int i=0; i < 1000; i++){
+            System.out.println(t.getName());
             processSomething(i);
         }
     }
@@ -36,11 +36,11 @@ class ProcessingThread implements Runnable{
         return this.count;
     }
 
-    private synchronized void processSomething(int i) {
+    private void processSomething(int i) {
         // processing some job
         try {
             this.count++;
-            Thread.sleep(i*1000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
